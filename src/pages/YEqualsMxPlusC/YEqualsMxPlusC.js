@@ -16,6 +16,8 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
 
 import InitialGraphContext from "../../contexts/InitialGraphContexts";
 
+import "./YEqualsMxPlusC.css";
+
 // see here to draw a line chart: http://recharts.org/en-US/api/LineChart
 // see here to draw and animate a line: http://recharts.org/en-US/api/Line
 
