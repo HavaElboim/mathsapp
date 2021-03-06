@@ -109,6 +109,7 @@ const YEqualsMxPlusC = () => {
             y ={" "}
             <input
               id="inputM"
+              style={{ width: "40px" }}
               value={slopeM}
               onChange={(e) => {
                 setSlopeM(e.target.value);
@@ -117,6 +118,7 @@ const YEqualsMxPlusC = () => {
             x +
             <input
               id="inputC"
+              style={{ width: "40px" }}
               value={pointC}
               onChange={(e) => {
                 setPointC(e.target.value);
@@ -126,23 +128,23 @@ const YEqualsMxPlusC = () => {
         </div>
       )}
 
-      <div>
-        y = {slopeM}x + {pointC}
-      </div>
-      <div>
-        points are: ( {startGraph.x} , {startGraph.x * slopeM + +pointC}) , (
-        {endGraph.x} , {endGraph.x * slopeM + +pointC})
-      </div>
-      <div>
-        {" "}
-        slope: {slopeM} cuts y at: {pointC} lineChart: {axes[0].lineChartWidth}{" "}
-        , {axes[0].lineChartHeight}
-      </div>
       <LineChart width={200} height={200} data={data}>
         <Line type="monotone" dataKey="y" stroke="#8884d8" />
         <CartesianGrid stroke="#ccc" />
-        <XAxis dataKey="x" type="number" name="x" />
-        <YAxis dataKey="y" type="number" name="y" />
+        <XAxis
+          dataKey="x"
+          type="number"
+          name="x"
+          label="x"
+          domain={["dataMin", "dataMax"]}
+        />
+        <YAxis
+          dataKey="y"
+          type="number"
+          name="y"
+          label="y"
+          domain={["dataMin", "dataMax"]}
+        />
       </LineChart>
     </div>
   );
@@ -154,6 +156,17 @@ YEqualsMxPlusC.propTypes = {
 
 export default YEqualsMxPlusC;
 /*
+
+      <YAxis
+          dataKey="y"
+          yAxisId="centery"
+          type="number"
+          name="y"
+          label="y"
+          domain={["dataMin", "dataMax"]}
+        />
+
+
  YEqualsMxPlusC.propTypes = {
   secondsLeft: PropTypes.number,
   color: PropTypes.string,
