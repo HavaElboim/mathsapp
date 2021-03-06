@@ -1,6 +1,13 @@
 import { React, useState, useContext, useEffect } from "react";
 import PropTypes from "prop-types";
-import { Surface, Curve, Layer, Tooltip, Legend } from "recharts";
+import {
+  Surface,
+  Curve,
+  Layer,
+  Tooltip,
+  Legend,
+  ReferenceLine,
+} from "recharts";
 import { curveCatmullRomOpen } from "d3-shape";
 import { scaleOrdinal } from "d3-scale";
 import { schemeCategory10 } from "d3-scale-chromatic";
@@ -144,6 +151,23 @@ const YEqualsMxPlusC = () => {
           name="y"
           label="y"
           domain={["dataMin", "dataMax"]}
+          axisLine={{ x: 0, y: 0 }}
+        />
+        <ReferenceLine y={0} stroke="grey" />
+        <ReferenceLine x={0} stroke="grey" />
+        <Line
+          id="xaxis"
+          type="monotone"
+          dataKey="y"
+          stroke="#8884d8"
+          points="[{x: 0, y: dataMin}, {x:0, y:dataMax}]"
+        />
+        <Line
+          id="data"
+          type="monotone"
+          dataKey="y"
+          stroke="#8884d8"
+          points="[{x: dataMin, y: 0}, {x:dataMax, y:0}]"
         />
       </LineChart>
     </div>
