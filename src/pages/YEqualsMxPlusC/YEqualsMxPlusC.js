@@ -136,42 +136,44 @@ const YEqualsMxPlusC = () => {
           </div>
         </div>
       )}
-
-      <LineChart width={200} height={200} data={data}>
-        <Line type="monotone" dataKey="y" stroke="#8884d8" />
-        <CartesianGrid stroke="#ccc" />
-        <XAxis
-          dataKey="x"
-          type="number"
-          name="x"
-          label="x"
-          domain={["dataMin", "dataMax"]}
-        />
-        <YAxis
-          dataKey="y"
-          type="number"
-          name="y"
-          label="y"
-          domain={["dataMin", "dataMax"]}
-          axisLine={{ x: 0, y: 0 }}
-        />
-        <ReferenceLine y={0} stroke="grey" />
-        <ReferenceLine x={0} stroke="grey" />
-        <Line
-          id="xaxis"
-          type="monotone"
-          dataKey="y"
-          stroke="#8884d8"
-          points="[{x: 0, y: dataMin}, {x:0, y:dataMax}]"
-        />
-        <Line
-          id="data"
-          type="monotone"
-          dataKey="y"
-          stroke="#8884d8"
-          points="[{x: dataMin, y: 0}, {x:dataMax, y:0}]"
-        />
-      </LineChart>
+      <div>
+        <LineChart width={200} height={200} data={data}>
+          <Line type="monotone" dataKey="y" stroke="#8884d8" />
+          <CartesianGrid stroke="#ccc" />
+          <XAxis
+            dataKey="x"
+            type="number"
+            name="x"
+            label="x"
+            domain={["dataMin", "dataMax"]}
+            axisLine="false"
+          />
+          <YAxis
+            dataKey="y"
+            type="number"
+            name="y"
+            label="y"
+            domain={["dataMin", "dataMax"]}
+            axisLine={{ x: 0, y: 0 }}
+          />
+          <ReferenceLine y={0} stroke="grey" />
+          <ReferenceLine x={0} stroke="grey" />
+          <Line
+            id="xaxis"
+            type="monotone"
+            dataKey="y"
+            stroke="#8884d8"
+            points="[{x: 0, y: dataMin}, {x:0, y:dataMax}]"
+          />
+          <Line
+            id="data"
+            type="monotone"
+            dataKey="y"
+            stroke="#8884d8"
+            points="[{x: dataMin, y: 0}, {x:dataMax, y:0}]"
+          />
+        </LineChart>
+      </div>
     </div>
   );
 };
